@@ -45,3 +45,37 @@ void print_stack(stack_t **stack, unsigned int ln)
 		tmp = tmp->next;
 	}
 }
+
+/**
+ * pop_top - removes a node of the top of the stack
+ *
+ * @stack: pointer to the new node
+ * @ln: line number
+ */
+
+void pop_top(stack_t **stack, unsigned int ln)
+{
+	stack_t *tmp;
+
+	if (stack == NULL || *stack == NULL)
+		more_err(7, ln);
+	tmp = *stack;
+	*stack = tmp->next;
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
+	free(tmp);
+}
+
+/**
+ * print_top - prints the top node of the stack
+ *
+ * @stack: pointer to pointer to the top node of the stack
+ * @ln: line number
+ */
+
+void print_top(stack_t **stack, unsigned int ln)
+{
+	if (stack == NULL || *stack == NULL)
+		more_err(6, ln);
+	print("%d\n", (*stack)->n);
+}
