@@ -44,7 +44,7 @@ typedef void (*op_func)(stack_t **, unsigned int);
 
 /* File operations */
 void open_file(char *file_name);
-int parse_line(char *buffer, int line_number, int format);
+int parse_line(char *buffer, int ln, int format);
 void read_file(FILE *);
 int len_chars(FILE *);
 void find_func(char *, char *, int, int);
