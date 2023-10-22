@@ -20,7 +20,7 @@ void err(int err_code, ...)
 			break;
 		case 2:
 			fprintf(stderr, "Error: Can't open file %s\n",
-				va_arg(age, char *);
+				va_arg(age, char *));
 			break;
 		case 3:
 			lnum = va_arg(age, int);

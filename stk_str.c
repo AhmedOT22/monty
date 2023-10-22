@@ -16,7 +16,7 @@ void print_char(stack_t **stack, unsigned int ln)
 	ascii = (*stack)->n;
 	if (ascii < 0 || ascii > 127)
 		string_err(10, ln);
-	print("%c\n", ascii);
+	printf("%c\n", ascii);
 }
 
 /**
@@ -42,7 +42,7 @@ void print_str(stack_t **stack, __attribute__((unused))unsigned int ln)
 		ascii = tmp->n;
 		if (ascii <= 0 || ascii > 127)
 			break;
-		print("%c", ascii);
+		printf("%c", ascii);
 		tmp = tmp->next;
 	}
 	printf("\n");

@@ -1,4 +1,4 @@
-#include "monty."
+#include "monty.h"
 
 /**
  * mul_nodes - multiplies the two top elements of the stack

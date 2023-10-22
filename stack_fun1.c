@@ -77,5 +77,5 @@ void print_top(stack_t **stack, unsigned int ln)
 {
 	if (stack == NULL || *stack == NULL)
 		more_err(6, ln);
-	print("%d\n", (*stack)->n);
+	printf("%d\n", (*stack)->n);
 }
