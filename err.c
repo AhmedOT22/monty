@@ -56,7 +56,7 @@ void more_err(int err_code, ...)
 	switch (err_code)
 	{
 		case 6:
-			fprintf(stderr, "L%d: can't pint stack empt\n",
+			fprintf(stderr, "L%d: can't pint, stack empty\n",
 				va_arg(age, int));
 			break;
 		case 7:

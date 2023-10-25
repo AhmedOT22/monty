@@ -28,12 +28,12 @@ void open_file(char *file_name)
 
 void read_file(FILE *fd)
 {
-	int ln, format = 0;
+	int line_number, format = 0;
 	char *buffer = NULL;
 	size_t len = 0;
 
-	for (ln = 1; getline(&buffer, &len, fd) != -1; ln++)
-		format = parse_line(buffer, ln, format);
+	for (line_number = 1; getline(&buffer, &len, fd) != -1; line_number++)
+		format = parse_line(buffer, line_number, format);
 	free(buffer);
 }
 
@@ -41,13 +41,13 @@ void read_file(FILE *fd)
  * parse_line - tokenize the lines
  *
  * @buffer: line form the file
- * @ln: line number
+ * @line_number: line number
  * @format: storage format
  *
  * Return: 0 if the opcode is stack, 1 if queue
  */
 
-int parse_line(char *buffer, int ln, int format)
+int parse_line(char *buffer, int line_number, int format)
 {
 	char *opcode, *value;
 	const char *delim = "\n";
@@ -65,7 +65,7 @@ int parse_line(char *buffer, int ln, int format)
 	if (strcmp(opcode, "queue") == 0)
 		return (1);
 
-	find_func(opcode, value, ln, format);
+	find_func(opcode, value, line_number, format);
 	return (format);
 }
 
@@ -82,7 +82,8 @@ int parse_line(char *buffer, int ln, int format)
 
 void find_func(char *opcode, char *value, int ln, int format)
 {
-	int i, flag;
+	int i;
+	int flag;
 
 	instruction_t func_list[] = {
 		{"push", add_to_stack},
@@ -130,7 +131,8 @@ void find_func(char *opcode, char *value, int ln, int format)
 void call_fun(op_func func, char *op, char *val, int ln, int format)
 {
 	stack_t *node;
-	int flag, i;
+	int flag;
+	int i;
 
 	flag = 1;
 	if (strcmp(op, "push") == 0)

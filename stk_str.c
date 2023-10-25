@@ -4,18 +4,18 @@
  * print_char - prints the ascii value
  *
  * @stack: pointer to a pointer to the top node of the stack
- * @ln: line number
+ * @line_number: line number
  */
 
-void print_char(stack_t **stack, unsigned int ln)
+void print_char(stack_t **stack, unsigned int line_number)
 {
 	int ascii;
 
 	if (stack == NULL || *stack == NULL)
-		string_err(11, ln);
+		string_err(11, line_number);
 	ascii = (*stack)->n;
 	if (ascii < 0 || ascii > 127)
-		string_err(10, ln);
+		string_err(10, line_number);
 	printf("%c\n", ascii);
 }
 
@@ -89,7 +89,7 @@ void rotr(stack_t **stack, __attribute__((unused))unsigned int ln)
 		tmp = tmp->next;
 	tmp->next = *stack;
 	tmp->prev->next = NULL;
-	*stack = (*stack)->next;
-	(*stack)->prev = NULL;
-	(*stack) = NULL;
+	tmp->prev = NULL
+	(*stack)->prev = tmp;
+	(*stack) = tmp;
 }

@@ -4,23 +4,23 @@
  * nop - does nothing
  *
  * @stack: pointer to a pointer to the top node of the stack
- * @ln: line number
+ * @line_number: line number
  */
 
-void nop(stack_t **stack, unsigned int ln)
+void nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
-	(void)ln;
+	(void)line_number;
 }
 
 /**
  * swap_nodes - swaps the two top elements of the stack
  *
  * @stack: pointer to a pointer to the top node of the stack
- * @ln: line number
+ * @line_number: line number
  */
 
-void swap_nodes(stack_t **stack, unsigned int ln)
+void swap_nodes(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 
@@ -40,15 +40,15 @@ void swap_nodes(stack_t **stack, unsigned int ln)
  * add_nodes - adds the two top elements of the stack
  *
  * @stack: pointer to a pointer to the top node of the stack
- * @ln: line number
+ * @line_number: line number
  */
 
-void add_nodes(stack_t **stack, unsigned int ln)
+void add_nodes(stack_t **stack, unsigned int line_number)
 {
 	int sum;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		more_err(8, ln, "add");
+		more_err(8, line_number, "add");
 	(*stack) = (*stack)->next;
 	sum = (*stack)->n + (*stack)->prev->n;
 	(*stack)->n = sum;
@@ -60,15 +60,15 @@ void add_nodes(stack_t **stack, unsigned int ln)
  * sub_nodes - substracts the two top elements of the stack
  *
  * @stack: pointer to a pointer to the top node of the stack
- * @ln: line number
+ * @line_number: line number
  */
 
-void sub_nodes(stack_t **stack, unsigned int ln)
+void sub_nodes(stack_t **stack, unsigned int line_number)
 {
 	int sum;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		more_err(8, ln, "add");
+		more_err(8, line_number, "add");
 	(*stack) = (*stack)->next;
 	sum = (*stack)->n - (*stack)->prev->n;
 	(*stack)->n = sum;
@@ -80,17 +80,17 @@ void sub_nodes(stack_t **stack, unsigned int ln)
  * div_nodes - divides the two top elements of the stack
  *
  * @stack: pointer to a pointer to the top node of the stack
- * @ln: line number
+ * @line_number: line number
  */
 
-void div_nodes(stack_t **stack, unsigned int ln)
+void div_nodes(stack_t **stack, unsigned int line_number)
 {
 	int sum;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		more_err(8, ln, "div");
+		more_err(8, line_number, "div");
 	if ((*stack)->n == 0)
-		more_err(9, ln);
+		more_err(9, line_number);
 	(*stack) = (*stack)->next;
 	sum = (*stack)->n / (*stack)->prev->n;
 	(*stack)->n = sum;

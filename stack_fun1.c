@@ -28,14 +28,14 @@ void add_to_stack(stack_t **new_node, __attribute__((unused))unsigned int ln)
  * print_stack - print a node of the stack
  *
  * @stack: pointer to the new node
- * @ln: line number
+ * @line_number: line number
  */
 
-void print_stack(stack_t **stack, unsigned int ln)
+void print_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 
-	(void) ln;
+	(void) line_number;
 	if (stack == NULL)
 		exit(EXIT_FAILURE);
 	tmp = *stack;
@@ -50,15 +50,15 @@ void print_stack(stack_t **stack, unsigned int ln)
  * pop_top - removes a node of the top of the stack
  *
  * @stack: pointer to the new node
- * @ln: line number
+ * @line_number: line number
  */
 
-void pop_top(stack_t **stack, unsigned int ln)
+void pop_top(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 
 	if (stack == NULL || *stack == NULL)
-		more_err(7, ln);
+		more_err(7, line_number);
 	tmp = *stack;
 	*stack = tmp->next;
 	if (*stack != NULL)
@@ -70,12 +70,12 @@ void pop_top(stack_t **stack, unsigned int ln)
  * print_top - prints the top node of the stack
  *
  * @stack: pointer to pointer to the top node of the stack
- * @ln: line number
+ * @line_number: line number
  */
 
-void print_top(stack_t **stack, unsigned int ln)
+void print_top(stack_t **stack, unsigned int line_number)
 {
 	if (stack == NULL || *stack == NULL)
-		more_err(6, ln);
+		more_err(6, line_number);
 	printf("%d\n", (*stack)->n);
 }
